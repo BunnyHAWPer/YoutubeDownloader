@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="url"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        <h2 style="color: #333;">Youtube Downloader</h2>
+        {% csrf_token %}
+        <input type="url" name="url" placeholder="Enter a URL">
+        <br><br>
+        <select name="format" id="format">
+            <option value="mp3">MP3</option>
+            <option value="mp4">MP4</option>
+            <option value="both">BOTH</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Download">
+    </form>
+
+    <script>
+        function selectDownloadLocation() {
+            // Simulate clicking on the invisible file input to trigger the file download dialog
+            document.getElementById('fileInput').click();
+        }
+    </script>
+
+    <!-- Invisible file input for triggering file download dialog -->
+    <input type="file" id="fileInput" style="display: none;">
+</body>
+</html>
